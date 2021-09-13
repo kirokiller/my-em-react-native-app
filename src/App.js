@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import { Easing, Animated, EmNavigation, YellowBox } from 'em-react-native'
 
-import HeaderLeft from './components/HeaderLeft'
-import HeaderRight from './components/HeaderRight'
-//以下请手动替换成emrn-common中对应文件
+import HeaderLeft from "emrn-common/components/EmTitleLeft";
+import HeaderRight from "emrn-common/components/EmTitleRight";
 import isIPad from 'emrn-common/utils/isIPad'
 import rpx from 'emrn-common/utils/rpx'
 import NavigationService from 'emrn-common/navigation/NavigationService'
 import 'emrn-common/settings/Text'
-//以上请手动替换成emrn-common中对应文件
 import Theme from 'emrn-common/styles/theme'
 import routes from './routes'
 
@@ -30,9 +28,10 @@ Theme.extend(customTheme)
 class App extends Component {
   constructor(props) {
     super(props)
-    const theme = props.theme
+    const theme = props.theme || 'w'
+    Theme.setTheme(theme);
     MainStack = EmNavigation.createEmNavigator(routes, {
-      initialRouteName: props.page || 'Home', //可以通过启动参数设置默认首页
+      initialRouteName: props.page || 'Level2', //可以通过启动参数设置默认首页
       defaultNavigationOptions: {
         headerStyle: {
           backgroundColor: theme == 'w' ? '#ea5504' : '#1c1c1c',

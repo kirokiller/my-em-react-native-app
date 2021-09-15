@@ -14,7 +14,7 @@ export default class Test5 extends Component {
     }
   }
 
-  async componentDidMount () {
+  async componentDidMount() {
     try {
       const passport = await Hybrid.Passport.getUserInfo()
       this.setState({
@@ -25,7 +25,7 @@ export default class Test5 extends Component {
     }
   }
 
-  render () {
+  render() {
     const { navigation } = this.props
     const { passport } = this.state
     return (

@@ -10,8 +10,7 @@ import 'emrn-common/settings/Text'
 import Theme from 'emrn-common/styles/theme'
 import routes from './routes'
 
-import customTheme from './styles/theme'
-
+import customTheme from './style/theme'
 
 YellowBox.ignoreWarnings([
   'Warning: isMounted(...) is deprecated',
@@ -28,7 +27,7 @@ Theme.extend(customTheme)
 class App extends Component {
   constructor(props) {
     super(props)
-    const theme = props.theme || 'w'
+    const theme = props.theme || 'w';
     Theme.setTheme(theme);
     MainStack = EmNavigation.createEmNavigator(routes, {
       initialRouteName: props.page || 'Level2', //可以通过启动参数设置默认首页

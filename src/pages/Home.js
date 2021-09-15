@@ -36,10 +36,10 @@ export default class Home extends Component {
       data: {}
     }
   }
-  componentDidMount () {
+  componentDidMount() {
     //this.getData();
   }
-  getData () {
+  getData() {
     request({
       url: `http://ceshi.securities.eastmoney.com:7279/test-EmRnApi`
     }).then(res => {
@@ -49,7 +49,7 @@ export default class Home extends Component {
       })
     })
   }
-  render () {
+  render() {
     const { navigation } = this.props
     let data = this.state.data
     return (
@@ -101,12 +101,6 @@ export default class Home extends Component {
           title="与App交互"
           onPress={() => {
             EmNavigation.navigate('Test5', null, navigation)
-          }}
-        />
-        <Button
-          title="自定义Test"
-          onPress={() => {
-            EmNavigation.navigate('MyTest', null, navigation)
           }}
         />
       </View>

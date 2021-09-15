@@ -16,8 +16,8 @@ interface State {
 
 }
 
-export default class index extends Component<Props, State> {
-  style: any
+export default class Level2 extends Component<Props, State> {
+  styles: any
   static navigationOptions = {
     title: 'Level-2专区',
     headerRight: (
@@ -30,40 +30,35 @@ export default class index extends Component<Props, State> {
         }}
       ></TitleRight>
     ),
-
   }
   constructor(props: Props) {
     super(props)
     this.state = {
 
     }
+    this.styles = getCss()
   }
 
   render() {
+    const { styles } = this
     return (
       <SafeAreaView style={styles.container}>
         <ScrollView>
-        <View>
           <AdBanner />
-        </View>
-        <View>
           <MyLevel2 />
-        </View>
-        <View>
           <OpenMethod />
-        </View>
-        <View>
           <HelpCenter />
-        </View>
         </ScrollView>
       </SafeAreaView>
     )
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Theme.getValue('$color6'),
-  }
-})
+function getCss() {
+  return StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: Theme.getValue('$color6'),
+    }
+  })
+}

@@ -36,10 +36,10 @@ export default class Home extends Component {
       data: {}
     }
   }
-  componentDidMount() {
+  componentDidMount () {
     //this.getData();
   }
-  getData() {
+  getData () {
     request({
       url: `http://ceshi.securities.eastmoney.com:7279/test-EmRnApi`
     }).then(res => {
@@ -49,9 +49,20 @@ export default class Home extends Component {
       })
     })
   }
-  render() {
+
+
+
+  render () {
     const { navigation } = this.props
     let data = this.state.data
+    const myTestPages = [
+      { title: '与App交互', routeName: 'Test5' },
+      { title: '多路由组件', routeName: 'Test6' },
+      { title: '滚动文字', routeName: 'Test7' },
+      { title: 'RN核心组件测试', routeName: 'Test8' },
+      { title: 'RN NPM 常用组件测试', routeName: 'Test9' },
+      { title: 'emrn-common 组件测试', routeName: 'Test10' },
+    ]
     return (
       <View>
         <View style={pageStyle.content}>
@@ -97,12 +108,13 @@ export default class Home extends Component {
             EmNavigation.navigate('Test4', null, navigation)
           }}
         />
-        <Button
-          title="与App交互"
+        {myTestPages.map(item => <Button
+          key={item.routeName}
+          title={item.title}
           onPress={() => {
-            EmNavigation.navigate('Test5', null, navigation)
+            navigation.navigate(item.routeName)
           }}
-        />
+        />)}
       </View>
     )
   }

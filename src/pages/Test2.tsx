@@ -8,7 +8,11 @@ import {
 } from 'em-react-native';
 import EmChart from 'em-react-native/components/EmChart'
 
-export default class Test2 extends Component {
+interface Porps {
+  navigation: any
+}
+
+export default class Test2 extends Component<Porps> {
   static navigationOptions = {
     headerTitle: '测试页面二 - 图表'
   };

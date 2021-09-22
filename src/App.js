@@ -30,7 +30,7 @@ class App extends Component {
     const theme = props.theme || 'w';
     Theme.setTheme(theme);
     MainStack = EmNavigation.createEmNavigator(routes, {
-      initialRouteName: props.page || 'Level2', //可以通过启动参数设置默认首页
+      initialRouteName: props.page || 'Home', //可以通过启动参数设置默认首页
       defaultNavigationOptions: {
         headerStyle: {
           backgroundColor: theme == 'w' ? '#ea5504' : '#1c1c1c',

@@ -1,37 +1,22 @@
 export default {
-  $adImg: [
-    require('../../images/level2/ad.png'),
-    require('../../images/level2/ad.png'),
-    require('../../images/level2/ad.png'),
+  $iconSearch: [
+    require('../../images/search/search-w.png'),
+    require('../../images/search/search-b.png'),
+    require('../../images/search/search-w.png')
   ],
-  $phone: [
-    require('../../images/level2/phone.png'),
-    require('../../images/level2/phone.png'),
-    require('../../images/level2/phone.png'),
+  $iconClear: [
+    require('../../images/search/trash-w.png'),
+    require('../../images/search/trash-b.png'),
+    require('../../images/search/trash-w.png')
   ],
-  $qiehuan: [
-    require('../../images/level2/qiehuan.png'),
-    require('../../images/level2/qiehuan.png'),
-    require('../../images/level2/qiehuan.png'),
+  $iconTime: [
+    require('../../images/search/time-w.png'),
+    require('../../images/search/time-b.png'),
+    require('../../images/search/time-w.png')
   ],
-  $tishi: [
-    require('../../images/level2/tishi.png'),
-    require('../../images/level2/tishi.png'),
-    require('../../images/level2/tishi.png'),
-  ],
-  $daoqitixing: [
-    require('../../images/level2/daoqitixing.png'),
-    require('../../images/level2/daoqitixing.png'),
-    require('../../images/level2/daoqitixing.png'),
-  ],
-  $yifuhe: [
-    require('../../images/level2/yifuhe.png'),
-    require('../../images/level2/yifuhe.png'),
-    require('../../images/level2/yifuhe.png'),
-  ],
-  $iconMore: [
-    require('../../images/level2/more-w.png'),
-    require('../../images/level2/more-b.png'),
-    require('../../images/level2/more-w.png')
+  $iconClose: [
+    require('../../images/search/closeIcon.png'),
+    require('../../images/search/closeIcon-b.png'),
+    require('../../images/search/closeIcon.png')
   ],
 }

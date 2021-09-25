@@ -16,6 +16,10 @@ export default class Test2 extends Component<Porps> {
   static navigationOptions = {
     headerTitle: '测试页面二 - 图表'
   };
+
+  _onPress = (data: any) => {
+    console.log("🚀 ~ file: Test2.tsx ~ line 21 ~ Test2 ~ data", data)
+  }
   render() {
     const { navigation } = this.props;
     const option = {
@@ -43,10 +47,12 @@ export default class Test2 extends Component<Porps> {
         data: [5, 20, 36, 10, 10, 20]
       }]
     };
+
+
     return (
       <View>
         <Text>测试页面二 - Echarts</Text>
-        <EmChart option={option} height={300} />
+        <EmChart option={option} height={300} onPress={this._onPress} />
         <Button title="返回首页" onPress={() => {
           EmNavigation.goBack(navigation)
         }} />

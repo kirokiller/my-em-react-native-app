@@ -11,6 +11,9 @@ import StickTable from 'emrn-common/components/StickyTable'
 import StickHeader from 'emrn-common/components/StickyHeader'
 import { SafeAreaView } from 'react-navigation'
 import { rpx } from 'emrn-common'
+import CommDivider from '../components/CommDivider'
+import EmChart from "em-react-native/components/EmChartV2";
+import { Theme } from 'emrn-common'
 
 interface Props {
 
@@ -20,7 +23,7 @@ interface State {
   switchValue: boolean
 }
 
-export default class Test10 extends Component<Props, State> {
+export default class Test9 extends Component<Props, State> {
   scrollAnimatedValue: Animated.Value
   constructor(props: Props) {
     super(props)
@@ -29,6 +32,17 @@ export default class Test10 extends Component<Props, State> {
     }
     this.scrollAnimatedValue = new Animated.Value(0)
   }
+
+  styles = getCss()
+
+  componentDidMount() {
+    this.fetchData()
+  }
+
+  fetchData = () => {
+
+  }
+
 
   onChangeSwitch = () => {
     // EmSwitch
@@ -62,8 +76,9 @@ export default class Test10 extends Component<Props, State> {
 
   render() {
     const { switchValue } = this.state;
+    const { styles } = this
     return (
-      <SafeAreaView style={sytles.container}>
+      <SafeAreaView style={styles.fillContent}>
         <Animated.ScrollView
           onScroll={Animated.event(
             [{ nativeEvent: { contentOffset: { y: this.scrollAnimatedValue } } }],
@@ -77,19 +92,24 @@ export default class Test10 extends Component<Props, State> {
             />
           </View>
           <Button title="show AcionSheet" onPress={this.showActionSheet} />
-          <View style={sytles.fillContent}></View>
+          <View style={styles.fillContent} />
         </Animated.ScrollView>
       </SafeAreaView>
     )
   }
 }
 
-const sytles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  fillContent: {
-    height: 900,
-    backgroundColor: 'yellow'
-  }
-})
+function getCss() {
+  return (
+    StyleSheet.create({
+      container: {
+        flex: 1
+      },
+      fillContent: {
+        height: 900,
+        backgroundColor: Theme.getValue('$color5_1')
+      }
+    })
+  )
+
+}

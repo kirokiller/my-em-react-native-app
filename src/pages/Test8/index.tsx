@@ -4,7 +4,15 @@
 import { Theme } from 'emrn-common'
 import { rpx } from 'emrn-common'
 import React, { Component } from 'react'
-import { Text, View, TouchableOpacity, StyleSheet, TextInput } from 'react-native'
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  StyleSheet,
+  TextInput,
+  RefreshControl,
+  Alert,
+} from 'react-native'
 import { ScrollView } from 'react-navigation'
 import CommDivider from '../../components/CommDivider'
 import { singlePx } from '../../utils'
@@ -17,7 +25,8 @@ interface Props {
 
 interface State {
   inputValue1: string,
-  inputValue2: string
+  inputValue2: string,
+  refreshing: boolean,
 }
 
 export default class Tesst8 extends Component<Props, State> {
@@ -26,6 +35,7 @@ export default class Tesst8 extends Component<Props, State> {
     this.state = {
       inputValue1: '',
       inputValue2: '',
+      refreshing: false,
     }
   }
 
@@ -83,7 +93,19 @@ export default class Tesst8 extends Component<Props, State> {
     )
   }
 
+  _onRefresh = () => {
+    this.setState({
+      refreshing: true
+    })
+    setTimeout(() => {
+      this.setState({
+        refreshing: false
+      })
+    }, 1000);
+  }
+
   render() {
+    const { refreshing } = this.state
     return (
       <View>
         <View style={[styles.touchContainer]}>
@@ -107,9 +129,7 @@ export default class Tesst8 extends Component<Props, State> {
           </TouchableOpacity>
         </View>
         {this._renderTabPage()}
-
         {this._renderShowdownCard()}
-
         <CommDivider />
         <View style={{ marginTop: rpx(50) }}>
           <Text>下面的元素</Text>
@@ -127,9 +147,14 @@ export default class Tesst8 extends Component<Props, State> {
           // onChange={({ nativeEvent: { eventCount, target, text } }) => {}}
           onSubmitEditing={() => { }}
         />
+        <Text>以下为ScrollView滚动元素</Text>
+        <CommDivider />
         <ScrollView
           // keyboardDismissMode="on-drag"
           keyboardShouldPersistTaps="handled"
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={this._onRefresh} />
+          }
         >
           <View>
             <TextInput
